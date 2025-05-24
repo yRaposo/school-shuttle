@@ -11,6 +11,7 @@ import { darkTheme } from "../../styles/Global";
 import UserDetails from "../Private/UserDetails";
 import RespMenuScreen from "../Private/RespMenuScreen";
 import MotorMenuScreen from "../Private/MotorMenuScreen";
+import MotorListScreen from "../Private/MotorListScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,8 @@ function RootTabs() {
                     let iconName;
                     if (route.name === 'Opções') {
                         iconName = 'cog';
+                    } else if (route.name === 'Motoristas') {
+                        iconName = 'car';
                     }
                     return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
                 },
@@ -58,6 +61,7 @@ function RootTabs() {
                 headerTitle: '',
             })}
         >
+            <Stack.Screen name="Motoristas" component={MotorListScreen} />
             <Stack.Screen name="Opções" component={SettingsStack} />
         </Tab.Navigator>
 
