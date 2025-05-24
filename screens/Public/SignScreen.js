@@ -100,7 +100,7 @@ export default function SignScreen({ navigation }) {
                             placeholder={"Digite seu CPF"}
                             value={fields.cpf}
                             onChangeText={value => handleChange("cpf", value)}
-                            icon={"fingerprint"}
+                            icon={"badge"}
                             error={errors.cpf}
                             disabled={false}
                         />
