@@ -39,6 +39,7 @@ export default function SignScreen({ navigation }) {
 
     const handleSubmit = async () => {
         setErrors({});
+        console.log("Iniciando validação dos campos:", fields);
         try {
             await validationSchema.validate(fields, { abortEarly: false });
             setSubmitting(true);
@@ -49,8 +50,10 @@ export default function SignScreen({ navigation }) {
                 telefone: fields.phone,
                 cpf: fields.cpf,
             };
+            console.log("Dados validados, enviando para cadastro:", usuario);
             await cadastrarUsuario(usuario);
             setSubmitting(false);
+            console.log("Usuário cadastrado com sucesso!");
             navigation.navigate("Login");
         } catch (err) {
             setSubmitting(false);
@@ -59,9 +62,11 @@ export default function SignScreen({ navigation }) {
                 err.inner.forEach(e => {
                     if (!fieldErrors[e.path]) fieldErrors[e.path] = e.message;
                 });
+                console.log("Erros de validação:", fieldErrors);
                 setErrors(fieldErrors);
             } else {
-                setErrors({ general: err.message || "Erro ao registrar usuário" });
+                console.log("Erro ao registrar usuário:", err);
+                setErrors({ general: err.response?.data?.message || "Erro ao registrar usuário" });
             }
         }
     };

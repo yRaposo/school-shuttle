@@ -4,6 +4,7 @@ import { AuthContext, AuthContextProvider } from './contexts/AuthContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { useContext } from 'react';
 import PublicRoutes from './screens/Routes/PublicRoutes';
+import PrivateRoutes from './screens/Routes/PrivateRoutes';
 
 export default function App() {
   return (
@@ -19,5 +20,5 @@ export default function App() {
 
 function Routes() {
   const { token } = useContext(AuthContext);
-  return <PublicRoutes />;
+  return token ? <PrivateRoutes /> : <PublicRoutes />;
 }
