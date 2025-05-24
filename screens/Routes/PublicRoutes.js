@@ -1,25 +1,23 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { View, Text } from "react-native"; // Corrigido aqui
+import LandPage from "../Public/LandPageScreen";
+import Login from "../Public/LoginScreen";
 
 const Stack = createStackNavigator();
-
-function Home() { // Mova para cima
-    return (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-            <Text>Home</Text>
-        </View>
-    );
-}
 
 export default function PublicRoutes() {
     return (
         <Stack.Navigator
+            initialRouteName="LandPage"
             screenOptions={{
-                headerShown: false,
+                headerTransparent: true,
+                headerTitle: '',
+                headerTintColor: '#fff',
             }}
         >
-            <Stack.Screen name="home" component={Home} />
+            <Stack.Screen name="LandPage" component={LandPage} />
+            <Stack.Screen name="Login" component={Login}/>
         </Stack.Navigator>
     );
 }
