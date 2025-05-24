@@ -1,8 +1,16 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native"; // Corrigido aqui
 
 const Stack = createStackNavigator();
+
+function Home() { // Mova para cima
+    return (
+        <View>
+            <Text>Home</Text>
+        </View>
+    );
+}
 
 export default function PublicRoutes() {
     return (
@@ -13,13 +21,5 @@ export default function PublicRoutes() {
         >
             <Stack.Screen name="home" component={Home} />
         </Stack.Navigator>
-    );
-}
-
-export function Home() {
-    return (
-        <View>
-            <Text>Home</Text>
-        </View>
     );
 }
