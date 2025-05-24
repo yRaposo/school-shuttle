@@ -2,6 +2,7 @@ import React from "react";
 import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import StylizedButton from "../../components/StylizedButton";
 import { StatusBar } from "expo-status-bar";
+import { darkTheme } from "../../styles/Global";
 
 export default function LandPage({ navigation }) {
     return (
@@ -20,12 +21,12 @@ export default function LandPage({ navigation }) {
                         <StylizedButton
                             title={"Registrar-se"}
                             icon={"person-add"}
-                            onPress={() => { navigation.navigate("Login") }}
+                            onPress={() => { navigation.navigate("Sign") }}
                         />
                         <StylizedButton
                             title={"Entrar"}
                             icon={"login"}
-                            onPress={() => { }}
+                            onPress={() => { navigation.navigate("Login") }}
                             secondary={true}
                         />
                     </View>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#ff9326",
+        backgroundColor: darkTheme.backGroundSecondary,
     },
 
     logoContainer: {
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 20,
         margin: 0,
-        backgroundColor: "#161616",
+        backgroundColor: darkTheme.backGroundPrimary,
         borderWidth: 1,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
