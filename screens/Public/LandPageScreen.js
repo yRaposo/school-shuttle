@@ -1,10 +1,12 @@
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import StylizedButton from "../../components/StylizedButton";
 import { StatusBar } from "expo-status-bar";
+
+import StylizedButton from "../../components/StylizedButton";
 import { darkTheme } from "../../styles/Global";
 
 export default function LandPage({ navigation }) {
+
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
             <StatusBar style="black" />

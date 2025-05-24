@@ -7,7 +7,7 @@ class AppError extends Error {
     }
 }
 
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'https://694hfvjh-8080.brs.devtunnels.ms/api/v1';
 
 export const api = axios.create({
     baseURL: apiUrl,
