@@ -7,10 +7,10 @@ class AppError extends Error {
     }
 }
 
-const apiUrl = 'https://694hfvjh-8080.brs.devtunnels.ms/api/v1';
+const EnderecoBack = process.env.EnderecoBack
 
 export const api = axios.create({
-    baseURL: apiUrl,
+    baseURL: EnderecoBack,
 });
 
 api.registerInterceptTokenManager = (signOut, getToken) => {
